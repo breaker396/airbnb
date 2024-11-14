@@ -34,11 +34,12 @@ namespace Airbnb.Api.Services
             var rooms = await query.Skip((roomFilterParam.PageIndex - 1) * roomFilterParam.PageSize).Take(roomFilterParam.PageSize).ToListAsync();
             foreach(var room in rooms)
             {
-                if(room.User == null)
-                {
-                    User? user = await _userRepository.GetById(room.UserId);
-                    if(user != null) room.User = user;
-                }
+                //No need user infor here
+                //if(room.User == null)
+                //{
+                //    User? user = await _userRepository.GetById(room.UserId);
+                //    if(user != null) room.User = user;
+                //}
                 if (room.Category == null)
                 {
                     Category? category = await _roomRepository.GetCategoryById(room.CategoryId);

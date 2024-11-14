@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Airbnb.Api.Repository
 {
-    public interface IRoomRepository
+    public interface IRoomRepository : IBaseRepository
     {
         public IQueryable<Room> GetRooms(RoomFilterParam roomFilterParam);
         public Task<Room?> GetById(long id, bool includeChild = false);
